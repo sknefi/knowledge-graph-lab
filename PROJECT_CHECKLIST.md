@@ -23,7 +23,7 @@ Documentation: [Project domain and purpose](01_DOMAIN_AND_PURPOSE.md).
 - [x] Create a **diagram of classes and properties**.
 - [x] Explain the model in writing.
 
-Documentation: [Ontology design](02_ONTOLOGY_DESIGN.md). Ontology: [ontology.ttl](ontology.ttl). Validation: [check results](ONTOLOGY_VALIDATION.md).
+Documentation, diagram, and consistency check: [Ontology design](02_ONTOLOGY_DESIGN.md). Ontology: [ontology.ttl](ontology.ttl).
 
 ## 3. Research Existing Ontologies and Vocabularies
 
@@ -91,14 +91,3 @@ Project consultation sessions are scheduled for **30 November and 1 December**.
 Presentations take place in **teaching weeks 12 and 13**.
 
 **Grading:** **35 points** for the project and **10 points** for the presentation. The instructions do not provide a more detailed breakdown of points by section.
-
-## Additional Recommendations
-
-These steps help verify the quality of the solution:
-
-- [ ] First verify a small example with an expected answer calculated manually.
-- [ ] Test SHACL on deliberately invalid data as well.
-- [ ] Verify that recommendations count only additional postings, and count each posting once.
-- [ ] Add instructions for loading the data, running queries, and performing validation.
-
-**The instructions do not require a web application, a user interface, or live collection of job postings.**

@@ -5,8 +5,7 @@
 The ontology follows the [domain, rules, and eight competency questions](01_DOMAIN_AND_PURPOSE.md). It contains **7 named classes and 10 domain properties**: 5 object properties and 5 datatype properties.
 
 - [ontology.ttl](ontology.ttl): the formal ontology in Turtle.
-- [validate_ontology.py](validate_ontology.py): repeatable checks of the structure, consistency, and a small example scenario.
-- [ONTOLOGY_VALIDATION.md](ONTOLOGY_VALIDATION.md): results of the checks performed.
+- This document: the model description, conceptual diagram, competency question mapping, and a brief consistency check result.
 
 Prefixes and identifiers:
 
@@ -140,19 +139,13 @@ The model follows the open-world semantics of RDF/OWL: a missing `hasSkill` link
 - Courses are evaluated independently without changing the stored candidate profile. Skills are added hypothetically when calculating a recommendation.
 - The main ranking uses the number of additional postings, without incorporating price or duration. If several courses share the highest count, all of them answer the main question.
 - Count distinct job postings, rather than their skills or paths through the graph.
-- This step provides a schema and a small scenario in the validation script, rather than the final dataset or the SPARQL queries for submission.
+- This step defines the schema. The final dataset and SPARQL queries for submission will be prepared separately.
 
 ## Validation and Next Steps
 
-The validation script checks Turtle syntax, class and property counts, English annotations, domains, and ranges. HermiT checks consistency and unsatisfiable classes. A small scenario tests currently qualifying postings, missing skills, and the benefit of two courses. A separate deliberately inconsistent scenario verifies that the reasoner detects a conflict between disjoint classes.
+The Turtle ontology was parsed successfully and checked with the HermiT reasoner. It contains 7 named classes and 10 domain properties; all named classes are satisfiable, and no logical inconsistency was found. Every class and property has English `rdfs:label` and `rdfs:comment` annotations.
 
-Repeating the checks requires Python 3 and Java 8 or later:
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-ontology.txt
-.venv/bin/python validate_ontology.py
-```
+A small example confirmed that the recommendation rule counts only additional qualifying postings. The reasoner also correctly detected a deliberately invalid object belonging to both `Candidate` and `Skill`. The required SHACL shapes for checking data completeness and value constraints will be added in step 6.
 
 Custom terms in this version allow the model to be loaded and checked independently. **Step 3 remains open:** research Schema.org and ESCO, decide whether to reuse or map their terms, and justify that decision. This ontology does not currently assert equivalence with their terms.
 
@@ -160,4 +153,3 @@ Technical references:
 
 - [W3C: RDF Schema 1.1 - classes, properties, domains, and ranges](https://www.w3.org/TR/rdf-schema/).
 - [W3C: OWL 2 Primer - hierarchies, disjointness, and the open-world assumption](https://www.w3.org/TR/owl2-primer/).
-- [Owlready2: Reasoning - consistency checking with HermiT](https://owlready2.readthedocs.io/en/latest/reasoning.html).
