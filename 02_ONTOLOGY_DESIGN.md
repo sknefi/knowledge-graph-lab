@@ -139,7 +139,7 @@ The model follows the open-world semantics of RDF/OWL: a missing `hasSkill` link
 - Courses are evaluated independently without changing the stored candidate profile. Skills are added hypothetically when calculating a recommendation.
 - The main ranking uses the number of additional postings, without incorporating price or duration. If several courses share the highest count, all of them answer the main question.
 - Count distinct job postings, rather than their skills or paths through the graph.
-- This step defines the schema. The final dataset and SPARQL queries for submission will be prepared separately.
+- This step defines the schema. The dataset is described in [Data overview](04_DATA.md); the final SPARQL queries will be prepared in step 5.
 
 ## Validation and Next Steps
 

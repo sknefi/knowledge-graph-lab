@@ -1,0 +1,415 @@
+# Fictional data generated for this academic project.
+# Names, postings, courses, prices, and web addresses are illustrative.
+@prefix onto: <https://example.org/it-learning/ontology#> .
+@prefix data: <https://example.org/it-learning/data/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Skills
+
+data:python
+    a onto:Skill ;
+    onto:name "Python" ;
+    onto:description "Programming in Python." .
+
+data:javascript
+    a onto:Skill ;
+    onto:name "JavaScript" ;
+    onto:description "Programming in JavaScript." .
+
+data:html
+    a onto:Skill ;
+    onto:name "HTML" ;
+    onto:description "Creating structured web page content." .
+
+data:css
+    a onto:Skill ;
+    onto:name "CSS" ;
+    onto:description "Styling web pages." .
+
+data:sql
+    a onto:Skill ;
+    onto:name "SQL" ;
+    onto:description "Querying and working with relational databases." .
+
+data:git
+    a onto:Skill ;
+    onto:name "Git" ;
+    onto:description "Managing source code with Git." .
+
+data:linux
+    a onto:Skill ;
+    onto:name "Linux" ;
+    onto:description "Using and administering Linux systems." .
+
+data:networking
+    a onto:Skill ;
+    onto:name "Networking" ;
+    onto:description "Working with computer networks and basic network configuration." .
+
+data:docker
+    a onto:Skill ;
+    onto:name "Docker" ;
+    onto:description "Building and running software containers." .
+
+data:aws
+    a onto:Skill ;
+    onto:name "AWS" ;
+    onto:description "Working with Amazon Web Services cloud infrastructure." .
+
+data:rest-api
+    a onto:Skill ;
+    onto:name "REST APIs" ;
+    onto:description "Building or integrating REST APIs." .
+
+data:manual-testing
+    a onto:Skill ;
+    onto:name "Manual testing" ;
+    onto:description "Designing and executing manual software tests." .
+
+data:selenium
+    a onto:Skill ;
+    onto:name "Selenium" ;
+    onto:description "Automating browser tests with Selenium." .
+
+data:ci-cd
+    a onto:Skill ;
+    onto:name "CI/CD" ;
+    onto:description "Using continuous integration and delivery pipelines." .
+
+data:security-fundamentals
+    a onto:Skill ;
+    onto:name "Security fundamentals" ;
+    onto:description "Applying basic information security practices." .
+
+data:power-bi
+    a onto:Skill ;
+    onto:name "Power BI" ;
+    onto:description "Creating reports and dashboards in Power BI." .
+
+data:excel
+    a onto:Skill ;
+    onto:name "Excel" ;
+    onto:description "Working with spreadsheets and analysing data in Excel." .
+
+data:java
+    a onto:Skill ;
+    onto:name "Java" ;
+    onto:description "Programming in Java." .
+
+data:react
+    a onto:Skill ;
+    onto:name "React" ;
+    onto:description "Building user interfaces with React." .
+
+data:terraform
+    a onto:Skill ;
+    onto:name "Terraform" ;
+    onto:description "Managing infrastructure as code with Terraform." .
+
+# Organizations: companies and course providers
+
+data:northstar-software
+    a onto:Organization, onto:Company ;
+    onto:name "Northstar Software" ;
+    onto:description "A fictional employer offering backend and integration roles." ;
+    onto:website "https://example.org/organizations/northstar-software"^^xsd:anyURI .
+
+data:brightweb-studio
+    a onto:Organization, onto:Company ;
+    onto:name "BrightWeb Studio" ;
+    onto:description "A fictional employer offering web development and testing roles." ;
+    onto:website "https://example.org/organizations/brightweb-studio"^^xsd:anyURI .
+
+data:cloudnest-systems
+    a onto:Organization, onto:Company ;
+    onto:name "CloudNest Systems" ;
+    onto:description "A fictional employer offering systems, cloud, and infrastructure roles." ;
+    onto:website "https://example.org/organizations/cloudnest-systems"^^xsd:anyURI .
+
+data:qualitybridge-labs
+    a onto:Organization, onto:Company, onto:CourseProvider ;
+    onto:name "QualityBridge Labs" ;
+    onto:description "A fictional employer and course provider specialising in software testing." ;
+    onto:website "https://example.org/organizations/qualitybridge-labs"^^xsd:anyURI .
+
+data:insightworks-tech
+    a onto:Organization, onto:Company ;
+    onto:name "InsightWorks Tech" ;
+    onto:description "A fictional employer offering reporting, automation, and security support roles." ;
+    onto:website "https://example.org/organizations/insightworks-tech"^^xsd:anyURI .
+
+data:skillpath-academy
+    a onto:Organization, onto:CourseProvider ;
+    onto:name "SkillPath Academy" ;
+    onto:description "A fictional provider of programming and business intelligence courses." ;
+    onto:website "https://example.org/organizations/skillpath-academy"^^xsd:anyURI .
+
+data:opencloud-learning
+    a onto:Organization, onto:CourseProvider ;
+    onto:name "OpenCloud Learning" ;
+    onto:description "A fictional provider of systems administration and cloud courses." ;
+    onto:website "https://example.org/organizations/opencloud-learning"^^xsd:anyURI .
+
+# Candidates
+
+data:alex-morgan
+    a onto:Candidate ;
+    onto:name "Alex Morgan" ;
+    onto:description "A fictional candidate with database and basic web skills." ;
+    onto:hasSkill data:sql, data:git, data:html, data:css .
+
+data:sam-taylor
+    a onto:Candidate ;
+    onto:name "Sam Taylor" ;
+    onto:description "A fictional candidate with scripting and Linux skills." ;
+    onto:hasSkill data:python, data:git, data:linux .
+
+data:jordan-lee
+    a onto:Candidate ;
+    onto:name "Jordan Lee" ;
+    onto:description "A fictional tester interested in automation and other IT opportunities." ;
+    onto:hasSkill data:manual-testing, data:sql, data:git .
+
+# Job postings: every listed skill is mandatory
+
+data:job-01
+    a onto:JobPosting ;
+    onto:name "SQL Support Assistant" ;
+    onto:description "Support database-related tasks and maintain version-controlled changes." ;
+    onto:offeredBy data:northstar-software ;
+    onto:requiresSkill data:sql, data:git ;
+    onto:website "https://example.org/jobs/job-01"^^xsd:anyURI .
+
+data:job-02
+    a onto:JobPosting ;
+    onto:name "Python Backend Developer" ;
+    onto:description "Develop backend services and database-backed REST APIs." ;
+    onto:offeredBy data:northstar-software ;
+    onto:requiresSkill data:python, data:sql, data:git, data:rest-api ;
+    onto:website "https://example.org/jobs/job-02"^^xsd:anyURI .
+
+data:job-03
+    a onto:JobPosting ;
+    onto:name "Java Backend Developer" ;
+    onto:description "Develop Java services connected to relational databases." ;
+    onto:offeredBy data:northstar-software ;
+    onto:requiresSkill data:java, data:sql, data:git, data:rest-api ;
+    onto:website "https://example.org/jobs/job-03"^^xsd:anyURI .
+
+data:job-04
+    a onto:JobPosting ;
+    onto:name "API Integration Developer" ;
+    onto:description "Implement integrations between software services." ;
+    onto:offeredBy data:northstar-software ;
+    onto:requiresSkill data:python, data:git, data:rest-api ;
+    onto:website "https://example.org/jobs/job-04"^^xsd:anyURI .
+
+data:job-05
+    a onto:JobPosting ;
+    onto:name "Web Content Developer" ;
+    onto:description "Create and maintain website content and styling." ;
+    onto:offeredBy data:brightweb-studio ;
+    onto:requiresSkill data:html, data:css, data:git ;
+    onto:website "https://example.org/jobs/job-05"^^xsd:anyURI .
+
+data:job-06
+    a onto:JobPosting ;
+    onto:name "Frontend Developer" ;
+    onto:description "Build web interfaces using JavaScript and React." ;
+    onto:offeredBy data:brightweb-studio ;
+    onto:requiresSkill data:html, data:css, data:javascript, data:react, data:git ;
+    onto:website "https://example.org/jobs/job-06"^^xsd:anyURI .
+
+data:job-07
+    a onto:JobPosting ;
+    onto:name "JavaScript Integration Developer" ;
+    onto:description "Connect JavaScript applications to REST APIs." ;
+    onto:offeredBy data:brightweb-studio ;
+    onto:requiresSkill data:javascript, data:git, data:rest-api ;
+    onto:website "https://example.org/jobs/job-07"^^xsd:anyURI .
+
+data:job-08
+    a onto:JobPosting ;
+    onto:name "Website Tester" ;
+    onto:description "Test website behaviour and report issues in web interfaces." ;
+    onto:offeredBy data:brightweb-studio ;
+    onto:requiresSkill data:html, data:css, data:manual-testing, data:git ;
+    onto:website "https://example.org/jobs/job-08"^^xsd:anyURI .
+
+data:job-09
+    a onto:JobPosting ;
+    onto:name "Linux Support Technician" ;
+    onto:description "Support Linux environments and maintain configuration changes." ;
+    onto:offeredBy data:cloudnest-systems ;
+    onto:requiresSkill data:linux, data:git ;
+    onto:website "https://example.org/jobs/job-09"^^xsd:anyURI .
+
+data:job-10
+    a onto:JobPosting ;
+    onto:name "Cloud Support Technician" ;
+    onto:description "Support cloud environments and troubleshoot network configuration." ;
+    onto:offeredBy data:cloudnest-systems ;
+    onto:requiresSkill data:linux, data:networking, data:aws ;
+    onto:website "https://example.org/jobs/job-10"^^xsd:anyURI .
+
+data:job-11
+    a onto:JobPosting ;
+    onto:name "DevOps Assistant" ;
+    onto:description "Maintain containers and software delivery pipelines." ;
+    onto:offeredBy data:cloudnest-systems ;
+    onto:requiresSkill data:linux, data:git, data:docker, data:ci-cd ;
+    onto:website "https://example.org/jobs/job-11"^^xsd:anyURI .
+
+data:job-12
+    a onto:JobPosting ;
+    onto:name "Platform Engineer" ;
+    onto:description "Manage cloud infrastructure using containers and infrastructure as code." ;
+    onto:offeredBy data:cloudnest-systems ;
+    onto:requiresSkill data:linux, data:docker, data:terraform, data:aws ;
+    onto:website "https://example.org/jobs/job-12"^^xsd:anyURI .
+
+data:job-13
+    a onto:JobPosting ;
+    onto:name "Manual Software Tester" ;
+    onto:description "Execute manual tests and inspect database results." ;
+    onto:offeredBy data:qualitybridge-labs ;
+    onto:requiresSkill data:manual-testing, data:sql, data:git ;
+    onto:website "https://example.org/jobs/job-13"^^xsd:anyURI .
+
+data:job-14
+    a onto:JobPosting ;
+    onto:name "Test Automation Engineer" ;
+    onto:description "Extend manual testing practice with automated browser tests." ;
+    onto:offeredBy data:qualitybridge-labs ;
+    onto:requiresSkill data:manual-testing, data:python, data:selenium, data:git ;
+    onto:website "https://example.org/jobs/job-14"^^xsd:anyURI .
+
+data:job-15
+    a onto:JobPosting ;
+    onto:name "API QA Tester" ;
+    onto:description "Test API responses and verify database behaviour." ;
+    onto:offeredBy data:qualitybridge-labs ;
+    onto:requiresSkill data:manual-testing, data:sql, data:git, data:rest-api ;
+    onto:website "https://example.org/jobs/job-15"^^xsd:anyURI .
+
+data:job-16
+    a onto:JobPosting ;
+    onto:name "Automation Assistant" ;
+    onto:description "Maintain Python-based browser automation." ;
+    onto:offeredBy data:qualitybridge-labs ;
+    onto:requiresSkill data:python, data:selenium, data:git ;
+    onto:website "https://example.org/jobs/job-16"^^xsd:anyURI .
+
+data:job-17
+    a onto:JobPosting ;
+    onto:name "Reporting Assistant" ;
+    onto:description "Prepare spreadsheet reports from relational data." ;
+    onto:offeredBy data:insightworks-tech ;
+    onto:requiresSkill data:sql, data:excel ;
+    onto:website "https://example.org/jobs/job-17"^^xsd:anyURI .
+
+data:job-18
+    a onto:JobPosting ;
+    onto:name "Business Intelligence Analyst" ;
+    onto:description "Build reports and dashboards for business users." ;
+    onto:offeredBy data:insightworks-tech ;
+    onto:requiresSkill data:sql, data:excel, data:power-bi ;
+    onto:website "https://example.org/jobs/job-18"^^xsd:anyURI .
+
+data:job-19
+    a onto:JobPosting ;
+    onto:name "Security Support Technician" ;
+    onto:description "Apply basic security practices in a networked Linux environment." ;
+    onto:offeredBy data:insightworks-tech ;
+    onto:requiresSkill data:linux, data:networking, data:security-fundamentals ;
+    onto:website "https://example.org/jobs/job-19"^^xsd:anyURI .
+
+data:job-20
+    a onto:JobPosting ;
+    onto:name "Data Automation Developer" ;
+    onto:description "Automate data processing and database-related tasks." ;
+    onto:offeredBy data:insightworks-tech ;
+    onto:requiresSkill data:python, data:sql, data:git ;
+    onto:website "https://example.org/jobs/job-20"^^xsd:anyURI .
+
+# Courses: prices in EUR, durations in hours
+
+data:python-backend
+    a onto:Course ;
+    onto:name "Python Backend Development" ;
+    onto:description "Learn Python programming and REST API development." ;
+    onto:providedBy data:skillpath-academy ;
+    onto:teachesSkill data:python, data:rest-api ;
+    onto:priceEUR "180.0"^^xsd:decimal ;
+    onto:durationHours "24.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/python-backend"^^xsd:anyURI .
+
+data:frontend-development
+    a onto:Course ;
+    onto:name "Frontend Development" ;
+    onto:description "Learn web page structure, styling, JavaScript, and React." ;
+    onto:providedBy data:skillpath-academy ;
+    onto:teachesSkill data:html, data:css, data:javascript, data:react ;
+    onto:priceEUR "240.0"^^xsd:decimal ;
+    onto:durationHours "32.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/frontend-development"^^xsd:anyURI .
+
+data:test-automation
+    a onto:Course ;
+    onto:name "Test Automation with Python" ;
+    onto:description "Learn Python browser automation and integration with delivery pipelines." ;
+    onto:providedBy data:qualitybridge-labs ;
+    onto:teachesSkill data:python, data:selenium, data:ci-cd ;
+    onto:priceEUR "120.0"^^xsd:decimal ;
+    onto:durationHours "18.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/test-automation"^^xsd:anyURI .
+
+data:cloud-foundations
+    a onto:Course ;
+    onto:name "Cloud Foundations" ;
+    onto:description "A free fictional introduction to AWS and networking." ;
+    onto:providedBy data:opencloud-learning ;
+    onto:teachesSkill data:aws, data:networking ;
+    onto:priceEUR "0.0"^^xsd:decimal ;
+    onto:durationHours "12.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/cloud-foundations"^^xsd:anyURI .
+
+data:containers-and-delivery
+    a onto:Course ;
+    onto:name "Containers and Delivery Pipelines" ;
+    onto:description "Learn Docker containers and continuous delivery pipelines." ;
+    onto:providedBy data:opencloud-learning ;
+    onto:teachesSkill data:docker, data:ci-cd ;
+    onto:priceEUR "160.0"^^xsd:decimal ;
+    onto:durationHours "16.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/containers-and-delivery"^^xsd:anyURI .
+
+data:it-support
+    a onto:Course ;
+    onto:name "IT Support Essentials" ;
+    onto:description "Learn Linux support, networking, and basic security practices." ;
+    onto:providedBy data:opencloud-learning ;
+    onto:teachesSkill data:linux, data:networking, data:security-fundamentals ;
+    onto:priceEUR "90.0"^^xsd:decimal ;
+    onto:durationHours "20.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/it-support"^^xsd:anyURI .
+
+data:business-intelligence
+    a onto:Course ;
+    onto:name "Business Intelligence Essentials" ;
+    onto:description "Learn SQL, spreadsheet reporting, and Power BI dashboards." ;
+    onto:providedBy data:skillpath-academy ;
+    onto:teachesSkill data:sql, data:excel, data:power-bi ;
+    onto:priceEUR "150.0"^^xsd:decimal ;
+    onto:durationHours "14.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/business-intelligence"^^xsd:anyURI .
+
+data:java-development
+    a onto:Course ;
+    onto:name "Java Backend Development" ;
+    onto:description "Learn Java programming and REST API development." ;
+    onto:providedBy data:skillpath-academy ;
+    onto:teachesSkill data:java, data:rest-api ;
+    onto:priceEUR "200.0"^^xsd:decimal ;
+    onto:durationHours "28.0"^^xsd:decimal ;
+    onto:website "https://example.org/courses/java-development"^^xsd:anyURI .

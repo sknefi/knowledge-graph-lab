@@ -35,12 +35,14 @@ Documentation: [Vocabulary research and reuse decisions](03_VOCABULARY_RESEARCH.
 
 ## 4. Data and Knowledge Graph
 
-- [ ] Create data using our ontology, either by generating it or transforming existing data.
-- [ ] Reach an indicative size of **at least 50-100 RDF triples**. The instructions describe this as a rough estimate.
-- [ ] Adequately cover **all defined classes and properties**.
-- [ ] Prepare data suitable for meaningful analysis.
+- [x] Create data using our ontology, either by generating it or transforming existing data.
+- [x] Reach an indicative size of **at least 50-100 RDF triples**. The instructions describe this as a rough estimate.
+- [x] Adequately cover **all defined classes and properties**.
+- [x] Prepare data suitable for meaningful analysis.
 
 Generated data is allowed; the instructions explicitly permit using an LLM to generate it.
+
+Data: [data.ttl](data.ttl). Description: [Data overview](04_DATA.md).
 
 ## 5. SPARQL Queries and Results
 
