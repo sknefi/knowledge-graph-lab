@@ -1,0 +1,112 @@
+@prefix : <https://example.org/it-learning/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/it-learning/ontology> a owl:Ontology ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:label "IT job postings, skills, and courses ontology"@en ;
+    rdfs:comment "A model for comparing a candidate's recorded skills with mandatory job requirements and evaluating the benefit of individual courses."@en .
+
+# Classes
+
+:Candidate a owl:Class ;
+    rdfs:label "Candidate"@en ;
+    rdfs:comment "A person with recorded skills who seeks to enter IT, advance their career, or change specialization."@en .
+
+:Skill a owl:Class ;
+    rdfs:label "Skill"@en ;
+    rdfs:comment "A uniquely identified skill, such as Python, SQL, or Git. The model does not distinguish proficiency levels."@en .
+
+:JobPosting a owl:Class ;
+    rdfs:label "Job posting"@en ;
+    rdfs:comment "A particular job posting from a company with a recorded list of mandatory skills. Separate postings for the same type of position are represented by separate objects."@en .
+
+:Course a owl:Class ;
+    rdfs:label "Course"@en ;
+    rdfs:comment "An educational course that teaches specific skills. Benefit calculations assume that all listed skills are gained after successful completion."@en .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment "The shared superclass of companies and course providers. One organization may have both roles."@en .
+
+:Company a owl:Class ;
+    rdfs:subClassOf :Organization ;
+    rdfs:label "Company"@en ;
+    rdfs:comment "An organization acting as the employer for a job posting."@en .
+
+:CourseProvider a owl:Class ;
+    rdfs:subClassOf :Organization ;
+    rdfs:label "Course provider"@en ;
+    rdfs:comment "An organization providing an educational course. It may also be a company offering jobs."@en .
+
+# The fundamental object types are mutually disjoint.
+# Company and CourseProvider are deliberately not disjoint.
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Candidate :Skill :JobPosting :Course :Organization ) .
+
+# Object properties
+
+:hasSkill a owl:ObjectProperty ;
+    rdfs:domain :Candidate ;
+    rdfs:range :Skill ;
+    rdfs:label "has skill"@en ;
+    rdfs:comment "Links a candidate to a skill recorded in their profile. The absence of a link does not itself logically assert that the person lacks the skill."@en .
+
+:requiresSkill a owl:ObjectProperty ;
+    rdfs:domain :JobPosting ;
+    rdfs:range :Skill ;
+    rdfs:label "requires skill"@en ;
+    rdfs:comment "Links a job posting to one of its mandatory skills. All such requirements must be covered for the posting's recorded skill requirements to be met."@en .
+
+:offeredBy a owl:ObjectProperty ;
+    rdfs:domain :JobPosting ;
+    rdfs:range :Company ;
+    rdfs:label "offered by"@en ;
+    rdfs:comment "Links a job posting to the company acting as its employer."@en .
+
+:teachesSkill a owl:ObjectProperty ;
+    rdfs:domain :Course ;
+    rdfs:range :Skill ;
+    rdfs:label "teaches skill"@en ;
+    rdfs:comment "Links a course to a skill that the recommendation model assumes is gained after successful completion of the course."@en .
+
+:providedBy a owl:ObjectProperty ;
+    rdfs:domain :Course ;
+    rdfs:range :CourseProvider ;
+    rdfs:label "provided by"@en ;
+    rdfs:comment "Links a course to the organization providing it."@en .
+
+# Datatype properties
+
+:name a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "name"@en ;
+    rdfs:comment "The readable name of a candidate, skill, job posting, course, or organization. The object's identity is determined by its IRI rather than this text."@en .
+
+:description a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "description"@en ;
+    rdfs:comment "A textual description of a particular object. This differs from rdfs:comment, which documents the meaning of a class or property in the ontology."@en .
+
+:priceEUR a owl:DatatypeProperty ;
+    rdfs:domain :Course ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "price in EUR"@en ;
+    rdfs:comment "The total comparable course price in EUR as a decimal value. A free course has a price of 0.0. Non-negativity and the presence of a value will be checked by SHACL validation."@en .
+
+:durationHours a owl:DatatypeProperty ;
+    rdfs:domain :Course ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "duration in hours"@en ;
+    rdfs:comment "The course duration in hours as a decimal value, such as 7.5. A positive value and the number of values will be checked by SHACL validation."@en .
+
+:website a owl:DatatypeProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf ( :Organization :Course :JobPosting ) ] ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "website"@en ;
+    rdfs:comment "The web address of an organization, course, or job posting, expressed as an xsd:anyURI literal. It is not the object's identifier within this graph."@en .
