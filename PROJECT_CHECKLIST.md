@@ -1,6 +1,6 @@
 # Project Checklist
 
-Checklist based on the updated semester project instructions for courses 4IZ444/4IZ441, intended for a **two-member team**. Additional recommendations are listed separately at the end.
+Checklist based on the updated semester project instructions for courses 4IZ444/4IZ441, intended for a **two-member team**.
 
 ## 1. Domain and Purpose
 
@@ -27,11 +27,11 @@ Documentation, diagram, and consistency check: [Ontology design](02_ONTOLOGY_DES
 
 ## 3. Research Existing Ontologies and Vocabularies
 
-- [ ] Research existing terms that could be reused.
-- [ ] Decide which terms to reuse and which to define ourselves.
-- [ ] **Justify both choices**: reuse and custom definitions.
+- [x] Research existing terms that could be reused.
+- [x] Decide which terms to reuse and which to define ourselves.
+- [x] **Justify both choices**: reuse and custom definitions.
 
-Schema.org and ESCO are possible sources to investigate for this domain.
+Documentation: [Vocabulary research and reuse decisions](03_VOCABULARY_RESEARCH.md). Schema.org, ESCO, and SKOS were reviewed; the local domain definitions are retained with explicit justification.
 
 ## 4. Data and Knowledge Graph
 

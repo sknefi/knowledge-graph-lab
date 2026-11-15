@@ -147,7 +147,7 @@ The Turtle ontology was parsed successfully and checked with the HermiT reasoner
 
 A small example confirmed that the recommendation rule counts only additional qualifying postings. The reasoner also correctly detected a deliberately invalid object belonging to both `Candidate` and `Skill`. The required SHACL shapes for checking data completeness and value constraints will be added in step 6.
 
-Custom terms in this version allow the model to be loaded and checked independently. **Step 3 remains open:** research Schema.org and ESCO, decide whether to reuse or map their terms, and justify that decision. This ontology does not currently assert equivalence with their terms.
+We reviewed Schema.org, ESCO, and SKOS and decided to keep our current classes and properties. The [short vocabulary comparison](03_VOCABULARY_RESEARCH.md) explains why.
 
 Technical references:
 
